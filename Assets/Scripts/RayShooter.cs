@@ -8,7 +8,7 @@ public class RayShooter : MonoBehaviour
 
     private Coroutine _coroutine;
     private bool _isRecharging = false;
-    private float _delay = 5f;
+    private float _delay = 1f;
 
     public void Fire()
     {
@@ -34,7 +34,5 @@ public class RayShooter : MonoBehaviour
         yield return delay;
 
         _isRecharging = false;
-
-        Destroy(effect);
     }
 }

@@ -1,24 +1,59 @@
+using System.Collections;
 using UnityEngine;
 
-[RequireComponent (typeof(CharacterController))]
+[RequireComponent(typeof(Rigidbody))]
 public class Mover : MonoBehaviour
 {
-    private float _speed;
-    private float _gravity = -9.8f;
-    private CharacterController _playerCharacterController;
+    [SerializeField] private float _speed = 1500f;
+    [SerializeField] private float _jumpForce = 400f;
+
+    private Rigidbody _rigidbody;
+    private bool _isGrounded = true;
+    private bool _isJump = false;
+    private Vector3 _direction;
 
     private void Awake()
     {
-        _playerCharacterController = GetComponent<CharacterController> ();
-        _speed = 20f;
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
-    public void Move(Vector3 direction)
+    private void FixedUpdate()
     {
-        direction *= _speed * Time.deltaTime; 
-        direction.y = _gravity;
-        direction = transform.TransformDirection(direction);
+        _direction *= Time.deltaTime * _speed;
+        _direction.y = _rigidbody.velocity.y;
+        _direction = transform.TransformDirection(_direction);
 
-        _playerCharacterController.Move(direction);
+        _rigidbody.velocity = _direction;
+
+        if (_isGrounded && _isJump)
+        {
+            _rigidbody.AddForce(Vector3.up * _jumpForce);
+
+            _isGrounded = false;
+            _isJump = false;
+        }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent<Ground>(out _))
+        {
+            _isGrounded = true;
+            Debug.Log("Xui");
+        }
+    }
+
+    public void Move(float directionX, float directionZ)
+    {
+        _direction = new Vector3(directionX, 0, directionZ);
+    }
+
+    public void Jump()
+    {
+        if (_isGrounded)
+        {
+            _isJump = true;
+        }
+    }
+
 }

@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5540478412863280509}
   - component: {fileID: 1096105735019626609}
-  - component: {fileID: 2590846684670553396}
-  - component: {fileID: 2868251923530355785}
+  - component: {fileID: 1574097819198501014}
   m_Layer: 0
   m_Name: ShotEffectPrefab
   m_TagString: Untagged
@@ -46,35 +45,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2127915bcbcce13429f6dc41c5ac541f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!33 &2590846684670553396
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8254564778789768728}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2868251923530355785
-MeshRenderer:
+  _sprites:
+  - {fileID: -757271194, guid: f8b153d71b3a24240b144e27b1fa167b, type: 3}
+  - {fileID: 1891870823, guid: f8b153d71b3a24240b144e27b1fa167b, type: 3}
+  - {fileID: -1117238156, guid: f8b153d71b3a24240b144e27b1fa167b, type: 3}
+  - {fileID: -369357400, guid: f8b153d71b3a24240b144e27b1fa167b, type: 3}
+  - {fileID: 32815402, guid: f8b153d71b3a24240b144e27b1fa167b, type: 3}
+  - {fileID: 1220347692, guid: f8b153d71b3a24240b144e27b1fa167b, type: 3}
+  - {fileID: 545357894, guid: f8b153d71b3a24240b144e27b1fa167b, type: 3}
+--- !u!212 &1574097819198501014
+SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8254564778789768728}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
+  m_RayTracingMode: 0
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,7 +86,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -95,4 +94,14 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0

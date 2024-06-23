@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
-    private float _rotateSpeed = 150f;
+    [SerializeField] private float _rotateSpeed = 300f;
+
     private Vector3 _rotateAxis = Vector3.up;
 
     private void Start()

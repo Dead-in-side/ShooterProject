@@ -4,6 +4,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     [SerializeField] InputReader _inputReader;
+    [SerializeField] SpriteAnimator _spriteAnimator;
 
     private RayShooter _rayShooter;
 
@@ -15,5 +16,12 @@ public class Gun : MonoBehaviour
     private void OnEnable()
     {
         _inputReader.ZeroMouseButtomPressed += _rayShooter.Fire;
+        _inputReader.ZeroMouseButtomPressed += _spriteAnimator.Shot;
+    }
+
+    private void OnDisable()
+    {
+        _inputReader.ZeroMouseButtomPressed -= _rayShooter.Fire;
+        _inputReader.ZeroMouseButtomPressed -= _spriteAnimator.Shot;
     }
 }

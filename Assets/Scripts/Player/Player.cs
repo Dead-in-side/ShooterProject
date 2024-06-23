@@ -17,12 +17,14 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         _inputReader.MoveButtonPressed += _mover.Move;
+        _inputReader.JumpButtonPressed += _mover.Jump;
         _inputReader.MouseMovementHappened += _cameraRotator.Rotate;
     }
 
     private void OnDisable()
     {
         _inputReader.MoveButtonPressed -= _mover.Move;
+        _inputReader.JumpButtonPressed -= _mover.Jump;
         _inputReader.MouseMovementHappened -= _cameraRotator.Rotate;
     }
 }
