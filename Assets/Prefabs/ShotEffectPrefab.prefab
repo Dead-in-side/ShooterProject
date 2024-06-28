@@ -48,7 +48,6 @@ MonoBehaviour:
   _sprites:
   - {fileID: -757271194, guid: f8b153d71b3a24240b144e27b1fa167b, type: 3}
   - {fileID: 1891870823, guid: f8b153d71b3a24240b144e27b1fa167b, type: 3}
-  - {fileID: -1117238156, guid: f8b153d71b3a24240b144e27b1fa167b, type: 3}
   - {fileID: -369357400, guid: f8b153d71b3a24240b144e27b1fa167b, type: 3}
   - {fileID: 32815402, guid: f8b153d71b3a24240b144e27b1fa167b, type: 3}
   - {fileID: 1220347692, guid: f8b153d71b3a24240b144e27b1fa167b, type: 3}

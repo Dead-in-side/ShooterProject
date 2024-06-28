@@ -6,10 +6,12 @@ public class InputReader : MonoBehaviour
     private const string Horizontal = "Horizontal";
     private const string Vertical = "Vertical";
     private const string MouseX = "Mouse X";
+    private const string MouseY = "Mouse Y";
     private const string Jump = "Jump";
 
     public event Action<float,float> MoveButtonPressed;
-    public event Action<float> MouseMovementHappened;
+    public event Action<float> MouseXMovementHappened;
+    public event Action<float> MouseYMovementHappened;
     public event Action ZeroMouseButtomPressed;
     public event Action JumpButtonPressed;
 
@@ -21,11 +23,11 @@ public class InputReader : MonoBehaviour
     {
         _directionX = Input.GetAxis(Horizontal);
         _directionZ = Input.GetAxis(Vertical);
-        _direction = new Vector3(_directionX, 0, _directionZ);
 
         MoveButtonPressed?.Invoke(_directionX,_directionZ);
 
-        MouseMovementHappened?.Invoke(Input.GetAxisRaw(MouseX));
+        MouseXMovementHappened?.Invoke(Input.GetAxisRaw(MouseX));
+        MouseYMovementHappened?.Invoke(Input.GetAxisRaw(MouseY));
 
         if (Input.GetMouseButtonDown(0))
         {

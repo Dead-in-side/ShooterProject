@@ -17,11 +17,13 @@ public class Gun : MonoBehaviour
     {
         _inputReader.ZeroMouseButtomPressed += _rayShooter.Fire;
         _inputReader.ZeroMouseButtomPressed += _spriteAnimator.Shot;
+        _inputReader.MoveButtonPressed += _spriteAnimator.Walk;
     }
 
     private void OnDisable()
     {
         _inputReader.ZeroMouseButtomPressed -= _rayShooter.Fire;
         _inputReader.ZeroMouseButtomPressed -= _spriteAnimator.Shot;
+        _inputReader.MoveButtonPressed -= _spriteAnimator.Walk;
     }
 }
