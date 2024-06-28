@@ -20,14 +20,13 @@ public class Mover : MonoBehaviour
     private void FixedUpdate()
     {
         _direction *= Time.deltaTime * _speed;
-        _direction.y = _rigidbody.velocity.y;
         _direction = transform.TransformDirection(_direction);
 
-        _rigidbody.velocity = _direction;
+        transform.position +=_direction*Time.fixedDeltaTime ;
 
         if (_isGrounded && _isJump)
         {
-            _rigidbody.AddForce(Vector3.up * _jumpForce);
+            _rigidbody.AddForce(transform.up * _jumpForce);
 
             _isGrounded = false;
             _isJump = false;
@@ -39,7 +38,6 @@ public class Mover : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Ground>(out _))
         {
             _isGrounded = true;
-            Debug.Log("Xui");
         }
     }
 

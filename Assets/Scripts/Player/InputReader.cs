@@ -8,12 +8,14 @@ public class InputReader : MonoBehaviour
     private const string MouseX = "Mouse X";
     private const string MouseY = "Mouse Y";
     private const string Jump = "Jump";
+    private const KeyCode GravityButton = KeyCode.LeftControl;
 
     public event Action<float,float> MoveButtonPressed;
     public event Action<float> MouseXMovementHappened;
     public event Action<float> MouseYMovementHappened;
     public event Action ZeroMouseButtomPressed;
     public event Action JumpButtonPressed;
+    public event Action ChangeTheGravity;
 
     private Vector3 _direction;
     private float _directionX;
@@ -36,6 +38,10 @@ public class InputReader : MonoBehaviour
         if (Input.GetButtonDown(Jump))
         {
             JumpButtonPressed?.Invoke();
+        }
+        if (Input.GetKeyDown(GravityButton))
+        {
+            ChangeTheGravity?.Invoke();
         }
     }
 }
