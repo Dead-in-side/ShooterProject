@@ -20,11 +20,15 @@ public class Rotator : MonoBehaviour
 
     public void RotateY(float direction)
     {
-        float rotateAngle = direction * _rotateSpeed * Time.deltaTime;
+        float rotationYInput = direction * _rotateSpeed * Time.deltaTime;
 
-        if (_camera.transform.rotation.x + rotateAngle <= _rotateAngleMax && _camera.transform.rotation.x + rotateAngle >= _rotateAngleMin)
+        Quaternion yQuaternion = Quaternion.AngleAxis(rotationYInput, Vector3.left);
+
+        Quaternion temp = _camera.transform.localRotation * yQuaternion;
+
+        if (Quaternion.Angle(Quaternion.identity, temp) < _rotateAngleMax)
         {
-            _camera.transform.Rotate(_rotateAxisX, rotateAngle);
+            _camera.transform.localRotation = temp;
         }
     }
 }
