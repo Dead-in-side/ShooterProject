@@ -56,11 +56,12 @@ public class GravityShifter : MonoBehaviour
 
         float time = 0;
 
+        Vector3 rotation = transform.eulerAngles;
+
         while (time <= _rotateCounter)
         {
             float delta = angle / _rotateCounter;
 
-            Vector3 rotation = transform.eulerAngles;
             rotation.z += delta * Time.deltaTime;
             transform.rotation = Quaternion.Euler(rotation);
 

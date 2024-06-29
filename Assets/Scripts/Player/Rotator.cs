@@ -7,7 +7,6 @@ public class Rotator : MonoBehaviour
 
     private Vector3 _rotateAxisY = Vector3.up;
     private Vector3 _rotateAxisX = Vector3.left;
-    private float _rotateAngleMin = -90f;
     private float _rotateAngleMax = 90f;
 
     private void Awake()
@@ -20,10 +19,9 @@ public class Rotator : MonoBehaviour
 
     public void RotateY(float direction)
     {
-        float rotationYInput = direction * _rotateSpeed * Time.deltaTime;
+        float rotationY = direction * _rotateSpeed * Time.deltaTime;
 
-        Quaternion yQuaternion = Quaternion.AngleAxis(rotationYInput, Vector3.left);
-
+        Quaternion yQuaternion = Quaternion.AngleAxis(rotationY, Vector3.left);
         Quaternion temp = _camera.transform.localRotation * yQuaternion;
 
         if (Quaternion.Angle(Quaternion.identity, temp) < _rotateAngleMax)
