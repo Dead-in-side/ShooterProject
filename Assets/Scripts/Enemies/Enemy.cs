@@ -86,6 +86,8 @@ public abstract class Enemy : MonoBehaviour
 
             yield return null;
         }
+
+        Attack();
     }
 
     public IEnumerator AttackCoroutine()
@@ -96,9 +98,9 @@ public abstract class Enemy : MonoBehaviour
 
         while (isWork)
         {
-            yield return delay;
-
             Attack();
+
+            yield return delay;
         }
     }
 

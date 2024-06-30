@@ -52,7 +52,16 @@ public class EnemiesSpawner : MonoBehaviour
 
     private void Spawn(Transform target)
     {
-        Enemy enemy = Instantiate(_enemyPrefab);
+        Vector3 enemyPosition = RandomPosition();
+
+        Enemy enemy = Instantiate(_enemyPrefab,transform.position + enemyPosition, transform.rotation);
         enemy.Initialize(_enemyHealth, _enemySpeed, _enemyDamage, target);
+    }
+
+    private Vector3 RandomPosition()
+    {
+        float position = 5;
+
+        return new Vector3(Random.Range(-position,position),transform.position.y,Random.Range(-position,position));
     }
 }

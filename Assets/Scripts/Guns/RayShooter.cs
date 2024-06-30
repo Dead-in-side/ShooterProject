@@ -22,11 +22,15 @@ public class RayShooter : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
             }
+            else if( hit.collider.isTrigger == true)
+            {
+                
+            }
             else
             {
-                Vector3 aimPosition = hit.point;
+                Vector3 targetPosition = hit.point;
 
-                _coroutine = StartCoroutine(SphereInicatorCoroutine(aimPosition));
+                _coroutine = StartCoroutine(SphereInicatorCoroutine(targetPosition));
             }
         }
     }
