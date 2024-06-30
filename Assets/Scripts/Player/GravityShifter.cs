@@ -12,6 +12,7 @@ public class GravityShifter : MonoBehaviour
     private float _rotateAngle = 180f;
     private Coroutine _coroutine;
     private bool _coroutineAwake = false;
+    private Quaternion _startRotation;
 
     private void Awake()
     {
@@ -24,6 +25,8 @@ public class GravityShifter : MonoBehaviour
         };
 
         _rigidbody.useGravity = false;
+
+        _startRotation = transform.rotation;
 
         _currentGravityIndex = 0;
     }
@@ -71,5 +74,12 @@ public class GravityShifter : MonoBehaviour
         }
 
         _coroutineAwake = false;
+    }
+
+    public void Die()
+    {
+        _currentGravityIndex = 0;
+
+        transform.rotation = _startRotation;
     }
 }

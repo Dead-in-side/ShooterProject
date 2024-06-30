@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 848028443600756241}
   - component: {fileID: 4659705610660659823}
   - component: {fileID: 4624931256113407022}
+  - component: {fileID: 7518470051019127722}
   m_Layer: 0
   m_Name: PhisicBody
   m_TagString: Untagged
@@ -363,6 +364,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ead19e74fe3024fb9b396a270d3946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7518470051019127722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960661036136923982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9910ead8e1fe6524da840773bf08eeba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 100
 --- !u!1001 &3726730102207627092
 PrefabInstance:
   m_ObjectHideFlags: 0

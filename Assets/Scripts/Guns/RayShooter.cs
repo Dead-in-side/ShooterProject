@@ -8,9 +8,9 @@ public class RayShooter : MonoBehaviour
 
     private Coroutine _coroutine;
     private bool _isRecharging = false;
-    private float _delay = 1f;
+    private WaitForSeconds _delay = new(1f);
 
-    public void Fire()
+    public void Fire(float damage)
     {
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
@@ -18,20 +18,26 @@ public class RayShooter : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit) && !_isRecharging)
         {
-            Vector3 aimPosition = hit.point;
+            if (hit.collider.TryGetComponent(out Enemy enemy))
+            {
+                enemy.TakeDamage(damage);
+            }
+            else
+            {
+                Vector3 aimPosition = hit.point;
 
-            _coroutine = StartCoroutine(SphereInicatorCoroutine(aimPosition));
+                _coroutine = StartCoroutine(SphereInicatorCoroutine(aimPosition));
+            }
         }
     }
 
     private IEnumerator SphereInicatorCoroutine(Vector3 pos)
     {
         _isRecharging = true;
-        WaitForSeconds delay = new(_delay);
 
         ShotEffect effect = Instantiate(_shotEffectPrefab, pos, Quaternion.identity);
 
-        yield return delay;
+        yield return _delay;
 
         _isRecharging = false;
     }

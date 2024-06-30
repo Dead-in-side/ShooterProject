@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
     [SerializeField] SpriteAnimator _spriteAnimator;
 
     private RayShooter _rayShooter;
+    private float _damage = 50;
 
     private void Awake()
     {
@@ -15,15 +16,17 @@ public class Gun : MonoBehaviour
 
     private void OnEnable()
     {
-        _inputReader.ZeroMouseButtomPressed += _rayShooter.Fire;
+        _inputReader.ZeroMouseButtomPressed +=Fire;
         _inputReader.ZeroMouseButtomPressed += _spriteAnimator.Shot;
         _inputReader.MoveButtonPressed += _spriteAnimator.Walk;
     }
 
     private void OnDisable()
     {
-        _inputReader.ZeroMouseButtomPressed -= _rayShooter.Fire;
+        _inputReader.ZeroMouseButtomPressed -= Fire;
         _inputReader.ZeroMouseButtomPressed -= _spriteAnimator.Shot;
         _inputReader.MoveButtonPressed -= _spriteAnimator.Walk;
     }
+
+    private void Fire() => _rayShooter.Fire(_damage);
 }
